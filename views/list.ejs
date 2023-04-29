@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Chris MacDonald">
+    <title>Loan List</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        tbody tr:hover {
+            background-color: #f5f5f5;
+        }
+        thead {
+            background-color: #ffa07a;
+        }
+        h1, h2, td, th {
+            text-align: center;
+        }
+    </style>
+</head>
+    <body>
+        <h1>Loan Lists || EJS View</h1>
+        <h2>Customer</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Loan Id</th>
+                    <th>Loan Type</th>
+                    <th>Loan Amount</th>
+                    <th>Interest Rate</th>
+                    <th>Repayment Terms</th>
+                    <th>Status</th>
+                    <th>Applied</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loop through customers data and populate the table rows -->
+                <% for (let i = 0; i < loans.length; i++) { %>
+                    <tr>
+                        <td><%= loans[i].id %></td>
+                        <td><%= loans[i].loanType %></td>
+                        <td><%= loans[i].loanAmount %></td>
+                        <td><%= loans[i].interestRate%></td>
+                        <td><%= loans[i].repaymentTerm %></td>
+                        <td><%= loans[i].status %></td>
+                        <td><%= loans[i].createdAt %></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </body>
+</html>
